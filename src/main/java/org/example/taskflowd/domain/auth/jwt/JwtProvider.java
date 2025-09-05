@@ -20,54 +20,57 @@ import java.util.Date;
 @Component
 public class JwtProvider {
 
-    private static final long JWT_EXPIRATION = 1000 * 60 * 60; // 1시간
+    private static final long JWT_EXPIRATION = 1000 * 60 * 60; //  JWT 만료 시간 1시간
 
-    @Value("${jwt.secret.key}")
+    @Value("${jwt.secret.key}") // yml에서 secretKey 주입
     private String secretKey;
 
 
     private Key getSigningKey() {
-        byte[] keyBytes = Decoders.BASE64.decode(secretKey); // yml에서 불러온 키 사용
-        return Keys.hmacShaKeyFor(keyBytes);
+        byte[] keyBytes = Decoders.BASE64.decode(secretKey); // yml에서 불러온 키를 Base64로 디코딩
+        return Keys.hmacShaKeyFor(keyBytes); // HMAC-SHA 키 생성
     }
 
     // JWT 토큰 생성
     public String createToken(String subject) {
-        Date now = new Date();
-        Date expiryDate = new Date(now.getTime() + JWT_EXPIRATION);
+        Date now = new Date(); // 현재 시간
+        Date expiryDate = new Date(now.getTime() + JWT_EXPIRATION);// 만료 시간 계산
 
         return Jwts.builder()
-                .setSubject(subject)
-                .setIssuedAt(now)
-                .setExpiration(expiryDate)
-                .signWith(getSigningKey(), SignatureAlgorithm.HS512)
-                .compact();
+                .setSubject(subject) // 토큰 소유자
+                .setIssuedAt(now) // 발급 시간
+                .setExpiration(expiryDate) // 만료 시간
+                .signWith(getSigningKey(), SignatureAlgorithm.HS512) // 서명
+                .compact(); // 토큰 생성
     }
 
     // 토큰에서 Authentication 객체 생성
     public Authentication getAuthentication(String token) {
-        String username = getClaims(token).getSubject();
+        String username = getClaims(token).getSubject();  // 토큰에서 username 추출
 
 
         // User 객체 생성
-        User principal = new User(username, "", new ArrayList<>());
-        return new UsernamePasswordAuthenticationToken(principal, token, principal.getAuthorities());
+        User principal = new User(username, "", new ArrayList<>()); // User 객체 생성, 권한은 빈 리스트
+        return new UsernamePasswordAuthenticationToken(principal, token, principal.getAuthorities()); // 인증 객체 반환
     }
 
 
-    // 토큰 검증
+    // 토큰 유효성  검증
     public boolean validateToken(String token) {
         try {
             Jwts.parserBuilder()
-                    .setSigningKey(getSigningKey())
+                    .setSigningKey(getSigningKey()) // 서명키 설정
                     .build()
-                    .parseClaimsJws(token);
+                    .parseClaimsJws(token); // 토큰 파싱
             return true;
         } catch (JwtException | IllegalArgumentException e) {
             return false;
         }
     }
 
+    // 토큰에서 Claims 추출
+    // Claims: JWT 안에 담긴 실제 데이터
+    // JWT 검증 후에 내부 정보를 안전하게 읽기 위해
     private Claims getClaims(String token) {
         return Jwts.parserBuilder()
                 .setSigningKey(getSigningKey())

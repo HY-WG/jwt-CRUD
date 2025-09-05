@@ -14,7 +14,7 @@ import java.io.IOException;
 
 
 @Component // Bean 등록 (SecurityConfig에서 자동 주입됨)
-public class JwtAuthenticationFilter extends OncePerRequestFilter {
+public class JwtAuthenticationFilter extends OncePerRequestFilter { // JWT 인증용 필터
 
     private final JwtProvider jwtProvider;
 

@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="365ca16c-f793-4aca-82d3-163837db6ee8" name="Changes" comment="" />
+    <list default="true" id="365ca16c-f793-4aca-82d3-163837db6ee8" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -46,8 +48,8 @@
         <option value="Interface" />
         <option value="AnnotationType" />
         <option value="Exception" />
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -87,6 +89,7 @@
     "Gradle.Build taskflow.executor": "Run",
     "Gradle.Download Sources.executor": "Run",
     "Gradle.pr [:org.example.taskflowd.domain.common.JwtKeyGenerator.main()].executor": "Run",
+    "Gradle.taskflow [:org.example.taskflowd.drill.main()].executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "Repository.Attach.Annotations": "false",
     "Repository.Attach.JavaDocs": "false",
@@ -99,7 +102,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "Spring Boot.TaskflowDApplication (1).executor": "Run",
     "Spring Boot.TaskflowDApplication.executor": "Run",
-    "git-widget-placeholder": "feature/user__recover",
+    "git-widget-placeholder": "dev",
     "ignore.virus.scanning.warn.message": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -125,13 +128,26 @@
       <recent name="C:\Users\User\Desktop\taskflow" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.TaskflowDApplication">
+  <component name="RunManager" selected="Application.drill">
     <configuration name="JwtKeyGenerator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.taskflowd.domain.common.JwtKeyGenerator" />
       <module name="taskflow-d.main" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="org.example.taskflowd.domain.common.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="drill" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.taskflowd.drill" />
+      <module name="taskflow-d.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.taskflowd.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -159,12 +175,14 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.drill" />
       <item itemvalue="Application.JwtKeyGenerator" />
       <item itemvalue="Spring Boot.TaskflowDApplication" />
       <item itemvalue="Spring Boot.TaskflowDApplication (1)" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.drill" />
         <item itemvalue="Application.JwtKeyGenerator" />
       </list>
     </recent_temporary>
@@ -191,6 +209,7 @@
       <workItem from="1756884858908" duration="9476000" />
       <workItem from="1756909414545" duration="2760000" />
       <workItem from="1756954604972" duration="711000" />
+      <workItem from="1757055196301" duration="1856000" />
     </task>
     <servers />
   </component>

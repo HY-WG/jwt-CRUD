@@ -8,7 +8,6 @@ package org.example.taskflowd.domain.user.util;
  */
 
 public class UserConst {
-    public static final String LOGIN_USER = "LOGIN_USER";
     public static final String LOGIN_SUCCESS = "로그인에 성공하였습니다.";
     public static final String LOGOUT_SUCCESS = "로그아웃에 성공하였습니다.";
     public static final String SIGNUP_SUCCESS = "회원가입이 완료되었습니다.";
