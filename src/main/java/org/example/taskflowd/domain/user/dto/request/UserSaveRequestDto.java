@@ -3,6 +3,7 @@ package org.example.taskflowd.domain.user.dto.request;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
+import lombok.Builder;
 import lombok.Getter;
 
 /**
@@ -11,6 +12,7 @@ import lombok.Getter;
  * - Validation 어노테이션으로 입력값 검증
  */
 
+@Builder
 @Getter
 public class UserSaveRequestDto {
 
