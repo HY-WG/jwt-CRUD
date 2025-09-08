@@ -10,6 +10,7 @@ import java.net.URI;
 import java.time.LocalDateTime;
 
 
+@Getter
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ApiResponse<T> {
 
